@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.8.34330.188
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "sklad_dsa", "sklad_dsa\sklad_dsa.vcxproj", "{826B8FE3-1099-49D8-990A-D234831CCFA0}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x64 = Debug|x64
+		Debug|x86 = Debug|x86
+		Release|x64 = Release|x64
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{826B8FE3-1099-49D8-990A-D234831CCFA0}.Debug|x64.ActiveCfg = Debug|x64
+		{826B8FE3-1099-49D8-990A-D234831CCFA0}.Debug|x64.Build.0 = Debug|x64
+		{826B8FE3-1099-49D8-990A-D234831CCFA0}.Debug|x86.ActiveCfg = Debug|Win32
+		{826B8FE3-1099-49D8-990A-D234831CCFA0}.Debug|x86.Build.0 = Debug|Win32
+		{826B8FE3-1099-49D8-990A-D234831CCFA0}.Release|x64.ActiveCfg = Release|x64
+		{826B8FE3-1099-49D8-990A-D234831CCFA0}.Release|x64.Build.0 = Release|x64
+		{826B8FE3-1099-49D8-990A-D234831CCFA0}.Release|x86.ActiveCfg = Release|Win32
+		{826B8FE3-1099-49D8-990A-D234831CCFA0}.Release|x86.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {8FF7E8F3-7B31-4444-A5CB-28FBD84F2E0E}
+	EndGlobalSection
+EndGlobal
