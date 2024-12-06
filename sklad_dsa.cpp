@@ -138,14 +138,27 @@ private:
 
             if (cin.fail()) {
                 cin.clear();
-                cin.ignore(numeric_limits<std::streamsize>::max(),'\n');
+                cin.ignore(numeric_limits<std::streamsize>::max(), '\n');
                 cout << "Neplatný vstup. Zadejte správný datový typ\n";
             } else {
-                cin.ignore(numeric_limits<std::streamsize>::max(),'\n');
+                cin.ignore(numeric_limits<std::streamsize>::max(), '\n');
                 break;
             }
         }
     }
+
+    void check_string_input(string& input, const string& prompt) {
+    while (true) {
+        cout << prompt;
+        getline(cin, input);
+
+        if (input.empty()) {
+            cout << "Neplatný vstup. Zadejte neprázdný řetězec\n";
+        } else {
+            break;
+        }
+    }
+}
 
 public:
     Sklad() : root(nullptr) {}
@@ -157,24 +170,10 @@ public:
         double price;
 
         check_numeric_input(id, "Zadejte ID výrobku: ");
-
-        // Vyčištění vstupního bufferu před čtením řetězce
-        cin.ignore(numeric_limits<streamsize>::max(), '\n');
-
-        cout << "Zadejte název výrobku: ";
-        getline(cin, title);
-
-        cout << "Zadejte počet kusů na skladě: ";
-        cin >> ks;
-
-        cout << "Zadejte cenu výrobku: ";
-        cin >> price;
-
-        // Vyčištění vstupního bufferu před čtením řetězce
-        cin.ignore(numeric_limits<streamsize>::max(), '\n');
-
-        cout << "Zadejte kategorii výrobku: ";
-        getline(cin, category);
+        check_string_input(category, "Zadejte název výrobku: ");
+        check_numeric_input(ks, "Zadejte počet na skladu: ");
+        check_numeric_input(price, "Zadejte cenu výrobku: ");
+        check_string_input(category, "Zadejte kategorii výrobku: ");
 
         root = vloz(root, id, title, ks, price, category);
         cout << "Položka byla přidána na sklad.\n";
@@ -191,9 +190,8 @@ public:
 
     void hledat_podle_kategorie() {
         string category;
-        cout << "Zadejte kategorii: ";
-        cin.ignore(numeric_limits<streamsize>::max(), '\n');
-        getline(cin, category);
+        cin.ignore(numeric_limits<std::streamsize>::max(), '\n');
+        check_string_input(category, "Zadejte kategorii: ");
 
         cout << "Výsledky vyhledávání:\n";
         vyhledat_kategorii(root, category);
@@ -201,8 +199,8 @@ public:
 
     void hledat_podle_id() {
         int id;
-        cout << "Zadejte ID: ";
-        cin >> id;
+        cin.ignore(numeric_limits<std::streamsize>::max(), '\n');
+        check_numeric_input(id, "Zadejte ID: ");
 
         Record* result = vyhledat_id(root, id);
         if (result) {
@@ -219,8 +217,8 @@ public:
 
     void odstranit_polozku() {
         int id;
-        cout << "Zadejte ID položky, kterou chcete odstranit: ";
-        cin >> id;
+        cin.ignore(numeric_limits<std::streamsize>::max(), '\n');
+        check_numeric_input(id, "Zadejte ID položky, kterou chcete odstranit: ");
 
         root = odstranit(root, id);
         cout << "Položka byla odstraněna (pokud existovala).\n";
